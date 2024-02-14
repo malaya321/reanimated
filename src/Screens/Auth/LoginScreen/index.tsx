@@ -9,7 +9,7 @@ import Animated, {
 
 const Login = () => {
   const animation = useSharedValue(0);
-  const animatedStyle = useAnimatedStyle(() => {
+  const animatedStyles = useAnimatedStyle(() => {
     return {transform: [{translateY: animation.value}]};
   });
   useEffect(() => {
@@ -22,7 +22,7 @@ const Login = () => {
         <Text style={styles.logintextheader}>Login</Text>
         <Text style={styles.logintext}>Please Login to continue</Text>  
       </View>
-      <Animated.View style={[styles.loginbox, animatedStyle]}>
+      <Animated.View style={[styles.loginbox, animatedStyles]}>
         <View style={styles.innerloginbox}>
          <Text style={styles.labletext}>Email Address</Text>
         </View>
