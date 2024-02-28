@@ -7,46 +7,46 @@ export const styles = StyleSheet.create({
       flex:1,
       backgroundColor:"white",
       position:'relative'
-
     },
     tophalfcontainer:{
         // backgroundColor:'#3057B4',
         backgroundColor:'#702963',
         // height:'60%',
-         transform: [{ rotate: '40deg'}],
-        height:height/2*1.4,
-        width:'200%',
-        marginTop:-140,
-
+        //  transform: [{ rotate: '90deg'}],
+        height:height/1.7,
+        width:'100%',
+        borderBottomLeftRadius:55,
+        borderBottomRightRadius:55
+        // marginTop:-130,
     },
     loginheadertext:{
-        position:'absolute',
-        zIndex:999,
+        // position:'absolute',
+        // zIndex:999,
         alignSelf:'center',
-        top:'9%',
-        alignItems:'center'
-       
+        // top:'9%',
+        alignItems:'center',
+        marginTop:20
     },
     logintext:{
-        color:'white',
+        color:'#702963',
         fontSize:12,
         marginTop:5
         
     },
     logintextheader:{
-        color:'white',
+        color:'#702963',
         fontSize:23,
-        fontWeight:'400'
+        fontWeight:'500'
     },
     loginbox: {
         position: 'absolute',
         zIndex: 999,
         backgroundColor: 'white',
         width: '90%',
-        height: '55%',
+       
         borderRadius:20,
         alignSelf: 'center',
-        top: '10%',
+        top: '30%',
         ...Platform.select({
           ios: {
             shadowColor: 'black',
@@ -61,13 +61,17 @@ export const styles = StyleSheet.create({
       },
       innerloginbox:{
         // backgroundColor:'red',
-        width:'90%',
+        // width:'100%',
         alignSelf:'center',
         margin:'10%'
       },
       labletext:{
         fontSize:12,
         color:'#702963'
+      },
+      gotosignuptext:{
+       marginTop:10,
+       alignItems:'flex-end'
       }
 
 
