@@ -41,8 +41,9 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Handle successful login, such as storing tokens, navigating, etc.
         console.log('Login successful:', data);
+        navigation.navigate('reanimatedHome')
+      
       } else {
         // Handle error response
         console.error('Login failed');

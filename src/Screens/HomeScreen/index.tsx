@@ -5,43 +5,37 @@ import Animated, {
   withSpring,
   useAnimatedStyle,
 } from 'react-native-reanimated';
+import CustomLoader from '../../Components/CustomLoader';
 
 const reanimatedHome = () => {
   const animation = useSharedValue(0);
   const [clicked, setClicked] = useState(false);
-  
+  const [loading, setLoading] = useState<boolean>(true);
+
   const animatedStyle = useAnimatedStyle(() => {
-       return{transform:[{translateY:animation.value}]}
+    return {transform: [{translateY: animation.value}]};
     // return{transform:[{rotate:`${animation.value}deg`}]}
     //  return {transform: [{scale: animation.value}]};
   });
   useEffect(() => {
     animation.value = withSpring(100);
   }, [animation]);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <View style={{flex: 1, alignItems: 'center'}}>
-      <Animated.View
-        style={[
-          {
-            width: 100,
-            height: 100,
-            backgroundColor: 'violet',
-          },
-          animatedStyle,
-        ]}></Animated.View>
-
-      <TouchableOpacity
-        onPress={() => {
-          if (clicked) {
-            animation.value = withSpring(100);
-          } else {
-            animation.value = withSpring(-100);
-          }
-          setClicked(!clicked);
-        }}>
-        <Text>click here</Text>
-      </TouchableOpacity>
+      {loading ? (
+        <CustomLoader size="large" color="#FF6347" />
+      ) : (
+        <View>
+          <Text>Hii</Text>
+        </View>
+      )}
     </View>
   );
 };
